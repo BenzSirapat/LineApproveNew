@@ -129,6 +129,7 @@ btnScanCode.onclick = () => {
   scanCode();
 };
 btnOpenWindow.onclick = () => {
+  confirm("Do you want Approved?")
   getData();
 };
 function getData() {
