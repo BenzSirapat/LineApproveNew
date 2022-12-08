@@ -108,18 +108,17 @@ btnSend.onclick = () => {
   sendMsg();
 };
 
-async function shareMsg() {
-  await liff.shareTargetPicker([
-    {
-      type: 'image',
-      originalContentUrl: 'https://d.line-scdn.net/stf/line-lp/2016_en_02.jpg',
-      previewImageUrl: 'https://d.line-scdn.net/stf/line-lp/2016_en_02.jpg',
-    },
-  ]);
+async function Register() {
+  const profile = await liff.getProfile();
+  post('https://171.100.141.54:5001/api/User/Register', {
+    user: profile.userId,
+    name: profile.displayName,
+    email: liff.getDecodedIDToken().email,
+  }).then((data) => console.log(data));
 }
 
 btnShare.onclick = () => {
-  shareMsg();
+  Register();
 };
 
 async function scanCode() {
@@ -151,7 +150,14 @@ const post = async (url, params) => {
     },
   });
 
-  const data = await response.json();
+  const Resp = await response.json();
+  const obj = JSON.parse(Resp);
+
+  if (obj.StatusCode == 200){
+    alert(obj.Message)
+  }else{
+    alert(obj.Message)
+  }
 
   return data;
 };
