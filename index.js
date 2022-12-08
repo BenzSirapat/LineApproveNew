@@ -111,7 +111,7 @@ btnSend.onclick = () => {
 async function Register() {
   const profile = await liff.getProfile();
   post('https://171.100.141.54:5001/api/User/Register', {
-    user: profile.userId,
+    id: profile.userId,
     name: profile.displayName,
     email: liff.getDecodedIDToken().email,
   }).then((data) => console.log(data));
