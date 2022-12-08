@@ -7,7 +7,7 @@ const body = document.getElementById('body');
 // Button elements
 const btnSend = document.getElementById('btnSend');
 const btnClose = document.getElementById('btnClose');
-const btnShare = document.getElementById('btnShare');
+const btnRegister = document.getElementById('btnRegister');
 const btnLogIn = document.getElementById('btnLogIn');
 const btnLogOut = document.getElementById('btnLogOut');
 const btnScanCode = document.getElementById('btnScanCode');
@@ -50,7 +50,7 @@ async function main() {
       if (liff.isLoggedIn()) {
         btnLogIn.style.display = 'none';
         btnLogOut.style.display = 'block';
-        btnShare.style.display = 'block';
+        btnRegister.style.display = 'block';
         getUserProfile();
       } else {
         btnLogIn.style.display = 'block';
@@ -58,7 +58,7 @@ async function main() {
       }
     } else {
       btnSend.style.display = 'block';
-      btnShare.style.display = 'block';
+      btnRegister.style.display = 'block';
       getUserProfile();
     }
   });
@@ -117,7 +117,7 @@ async function Register() {
   }).then((data) => console.log(data));
 }
 
-btnShare.onclick = () => {
+btnRegister.onclick = () => {
   Register();
 };
 
