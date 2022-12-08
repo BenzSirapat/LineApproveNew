@@ -153,11 +153,11 @@ const post = async (url, params) => {
   const Resp = await response.json();
   const obj = JSON.parse(Resp);
 
-  if (obj.StatusCode == 200){
-    alert(obj.Message)
-  }else{
-    alert(obj.Message)
+  if (obj.StatusCode == 200) {
+    alert(obj.Message);
+  } else {
+    alert(obj.Message);
   }
 
-  return data;
+  return Resp;
 };
